@@ -1,0 +1,905 @@
+/*
+Author       : theme_ocean
+Template Name: Mr. Taimoor Hussain - Personal Portfolio HTML Template
+Version      : 1.0
+*/
+/*=============================================================
+    CSS INDEX
+    =============================
+    01. GENERAL STYLE (body, link color, section-title, preloader btn, overlay, section-padding etc)
+    02. START ABOUT CSS
+    03. START SERVICE CSS STYLE
+    04. START PORTFILIO PAGE DESIGN
+    05. START BLOG CSS DESIGN
+    06. START CONTACT DESIGN
+=============================================================*/
+
+ /*
+* ----------------------------------------------------------------------------------------
+* 01.GENERAL STYLE
+* ----------------------------------------------------------------------------------------
+*/
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+.demo-2 {
+color:#777;
+font-family: 'Mulish', sans-serif;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+background:#fff;
+overflow-x:hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0px;
+  margin: 0px;
+  font-family: 'Mulish', sans-serif;
+  color: #1a2d62;
+  font-weight: 400;
+}
+.content__title {
+	font-family: 'Playfair Display', serif;
+	font-size: 8vw;
+	margin: 0;
+	position: relative;
+	font-weight: normal;
+}
+
+.content__subtitle {
+	font-size: 1.45rem;
+	padding: 1rem 0;
+	letter-spacing: 2px;
+	text-indent: 2px;
+	color:#fff;
+	text-align:center;
+}
+
+.content__subtitle::after {
+	content: '\2014';
+	position: relative;
+	display: block;
+	font-size: 2.75rem;
+	text-align: center;
+}
+
+.menu-trigger {
+	display: none;
+}
+
+.grim {
+	display: none;
+}
+
+.content--switch {
+	background-size: cover;
+}
+
+.content--switch::after {
+	content: '';
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 0%;
+	bottom: 0;
+	background: linear-gradient(transparent, rgba(0,0,0,0.6));
+}
+
+#content-2 {
+	/* background-image: url(../img/bg1.jpg); */
+	background:#5F4586;
+}
+
+#content-3 {
+	background:#016A70;
+}
+
+#content-4 {
+	background: #DF9E98;
+}
+
+#content-5 {
+	background:#9ED4D4;
+}
+
+#content-6 {
+	/* background-image: url(../img/bg5.jpg);  */
+	background:#232434;
+}
+
+@media screen and (min-width: 55em) {
+	.menu-trigger {
+		display: inline-block;
+		background: none;
+		border: 0;
+		/* grid-area: menu; */
+		justify-self: start;
+		align-self: end;
+		cursor: pointer;
+		pointer-events: auto;
+		font-family: inherit;
+		color: inherit;
+		position: relative;
+		padding: 0;
+		color: #fff;
+		white-space: nowrap;
+		background:#2eca7f;
+		padding:10px 20px;
+		border-radius:5px;
+	}
+
+	.menu-trigger--close {
+		color: #000;
+		align-self: center;
+	}
+
+	.grim {
+		display: grid;
+		position: fixed;
+		z-index: 1000;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		grid-template-columns: repeat(32,3.125vw);
+		grid-template-rows: repeat(32,3.125vh);
+		pointer-events: none;
+	}
+
+	.grim--open {
+		pointer-events: auto;
+	}
+
+	.grim__item {
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.grim__item:first-child {
+		grid-area: 31 / 1 / 33 / 2;
+	}
+
+	.grim__item:nth-child(2) {
+		grid-area: 31 / 2 / 33 / 3;
+	}
+
+	.grim__item:nth-child(3) {
+		grid-area: 29 / 1 / 31 / 3;
+	}
+
+	.grim__item:nth-child(4) {
+		grid-area: 29 / 3 / 33 / 5;
+	}
+
+	.grim__item:nth-child(5) {
+		grid-area: 25 / 1 / 29 / 5;
+	}
+
+	.grim__item:nth-child(6) {
+		grid-area: 25 / 5 / 33 / 9;
+	}
+
+	.grim__item:nth-child(7) {
+		grid-area: 17 / 1 / 25 / 9;
+	}
+
+	.grim__item:nth-child(8) {
+		grid-area: 17 / 9 / 33 / 17;
+	}
+
+	.grim__item:nth-child(9) {
+		grid-area: 1 / 1 / 17 / 17;
+	}
+
+	.grim__item:nth-child(10) {
+		grid-area: 1 / 17 / 33 / 33;
+	}
+
+	.grim__item-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		box-shadow: 0 0 0 2px currentColor;
+		background: currentColor;
+	}
+
+	.grim__item-bg--1 { color: #f1d3b9; }
+	.grim__item-bg--2 { color: #df9e98; }
+	.grim__item-bg--3 { color: #fcfdff; }
+	.grim__item-bg--4 { color: #9ed4d4; }
+	.grim__item-bg--5 { color: #000; }
+
+	.grim__item-bg--6 { color: #7296de; }
+	.grim__item-bg--7 { color: #7c95b5; }
+	.grim__item-bg--8 { color: #86bfbf; }
+	.grim__item-bg--9 { color: #af9b9b; }
+	.grim__item-bg--10 { color: #c57d76; }
+
+	.grim__item-img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: 50% 100%;
+		background-color: currentColor;
+	}
+
+	.grim__item-img--1 { color: #fcfdff; }
+	.grim__item-img--2 { color: #a9bdd6; }
+	.grim__item-img--3 { color: #9ed4d4; }
+	.grim__item-img--4 { color: #d0bebe; }
+	.grim__item-img--5 { color: #df9e98; }
+
+	.grim__item-content {
+		position: relative;
+		color: #000;
+		overflow: hidden;
+	}
+
+	.grim__item-content:hover,
+	.grim__item-content:focus {
+		opacity: 0.8;
+		color: inherit;
+		transition: opacity 0.3s;
+	}
+
+	.grim__item-inner {
+		padding: 0 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		position: relative;
+		opacity: 0;
+	}
+
+	.grim__item-title {
+		font-weight: normal;
+		margin: 0;
+		font-size: 4vmax;
+		font-family: 'Playfair Display', serif;
+	}
+
+	.grim__item:nth-child(-n+6) .grim__item-title {
+		font-size: 2vmax;
+	}
+
+	.grim__item:nth-child(5) .grim__item-title {
+		color: #fff;
+	}
+
+	.grim__item-desc {
+		font-size: 18px;
+		margin: 0.5rem 0 0 0;
+	}
+
+	.grim__item-desc::after {
+		content: '\2014';
+		position: relative;
+		display: block;
+		font-size: 1.75rem;
+	}
+}
+
+/*START SECTION TITLE DESIGN*/
+.section-title {
+  margin-bottom: 60px;
+  position:relative;
+  text-align:center;
+}
+
+.section-title h4 {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.section-title h2 {
+	margin-top: 10px;
+	font-size: 42px;
+	font-weight: 700;
+	text-transform: capitalize;
+	line-height: 40px;
+}
+.section-title h2 span{color: #2eca7f;}
+h4.section-title-white{color:#2eca7f;}
+h2.section-title-white{color:#fff;}
+.section-title-two{margin-bottom:60px;}
+.section-title-two h2 {
+	color:#fff;
+	font-weight: 600;
+	font-size: 40px;
+	text-align: center;
+}
+.section-title-two h2 span{color: #2eca7f;}
+/*END SECTION TITLE DESIGN*/
+/*START BTN*/
+.home_btn {
+	background: #2eca7f;
+	border: 2px solid #2eca7f;
+	color: #fff;
+	text-align: center;
+	border-radius: 100px;
+	margin-right: 15px;
+	display: inline-block;
+	transition: all 0.3s ease 0s;
+	padding: 12px 30px;
+	font-weight: 500;
+}
+.home_btn:hover{
+background: #fff;
+color:#2eca7f;
+border:2px solid #2eca7f;
+}
+/*END BTN*/
+.top_social_profile{}
+.top_social_profile ul {
+	list-style: none;
+	text-align: center;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.top_social_profile ul li{display: inline-block;margin: 0 2px;}
+.top_social_profile ul li a img{}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 01.END GENERAL STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 02. START ABOUT CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+.about_img{margin-right: 40px;}
+.about_img img{width:100%;}
+ @media only screen and (max-width:880px){
+.about_img {margin-bottom:0px;margin-right:0px;}
+ }
+.about_info {
+	margin-bottom: 20px;
+	margin-top: 60px;
+}
+.about_info h4 {
+	margin-bottom: 10px;
+	text-transform: capitalize;
+	font-size: 16px;
+	color:#fff;
+	border-bottom: 1px dashed #fff;
+	display: inline-block;
+	padding-bottom: 4px;
+}
+.about_info h3 {
+	font-size: 40px;
+	font-weight:700;
+	color:#fff;
+	margin-bottom:25px;
+	line-height: 48px;
+}
+.about_info p {
+	margin-bottom: 30px;
+	font-size: 18px;
+	line-height: 32px;
+	color:#fff;
+}
+.basic-info{margin-top:20px;position:relative;}
+.basic-info{}
+.single-basic-info {
+	display: inline-block;
+	font-size: 14px;
+	width: 175px;
+}
+.single-basic-info p {
+font-size:22px;
+color: #fff;
+font-weight: 700;
+}
+.single-basic-info p span {
+	color: #fff;
+	font-size:16px;
+	font-weight: normal;
+}
+/*START SKILL DESIGN */
+.skill_mt{margin-top:50px;}
+.progress-bar-linear {
+	margin-bottom: 20px;
+}
+.progress-bar-text {
+	color:#fff;
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+.progress-bar-text span { float: right }
+.progress-bar {
+	background: #e8e8e9 none repeat scroll 0 0;
+	-webkit-box-shadow: 0 0 0;
+	box-shadow: 0 0 0;
+	height: 12px;
+	margin: 0 0 12px;
+	border-radius: 30px;
+	position: relative;
+	width: 100%;
+}
+.progress-bar > span {
+    background: #ffde67 none repeat scroll 0 0;
+    display: block;
+    height: 100%;
+    width: 0;
+	border-radius: 30px;
+}
+.pb1 > span{background:#ffde67;}
+.pb2 > span{background:#ff9900;}
+.pb3 > span{background:#82b700;}
+.pb4 > span{background:#ef2d56;}
+.pb5 > span{background:#2eca7f;}
+/*END SKILL*/
+/*
+* ----------------------------------------------------------------------------------------
+* 02. END ABOUT CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 03. START SERVICE CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+.marketing_content_area {
+	padding-bottom:50px;
+}
+.single_feature_one {
+	background:#fff;
+	margin-bottom: 30px;
+	padding:40px;
+	border-radius:10px;
+	margin-bottom:30px;
+	position: relative;
+	box-shadow:0px 0px 150px 0px rgba(78, 67, 250, 0.06);
+	border:1px solid #ededed;
+	z-index: 2;
+		-webkit-transition: 0.3s;
+	-webkit-transition: 0.2s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+.sf_top{overflow: hidden;}
+.single_feature_one span {
+	border-radius: 100px;
+	float: left;
+	color:#1a2d62;
+	font-size: 30px;
+	width: 65px;
+	height: 65px;
+	line-height: 65px;
+	text-align: center;
+	margin-right: 20px;
+}
+.single_feature_one h2 a{
+	font-size: 22px;
+	color: #1a2d62;
+	margin-bottom: 15px;
+	display: block;
+	text-transform: capitalize;
+	overflow: hidden;
+	line-height: 32px;
+	font-weight:800;
+	transition: 0.3s;
+}
+.single_feature_one:hover h2 a{}
+.single_feature_one p{}
+.single_feature_one:hover{
+	-webkit-box-shadow: 0px 0px 150px 0px rgba(78, 67, 250, 0.06);
+	        box-shadow: 0px 0px 150px 0px rgba(78, 67, 250, 0.06);
+-webkit-transform: translate(0, -5px);
+        -ms-transform: translate(0, -5px);
+    transform: translate(0, -5px);
+}
+.ss_one{background:rgba(46,202,127,0.2);}
+.ss_two{background:#ECFFFC}
+.ss_three{background:#E8F5FF}
+.ss_four{background:#E3F9F6}
+.ss_five{background:#FFF6EB}
+.ss_six{background:#E8FFEA}
+
+/*START TESTIMONIAL*/
+#testimonial-slider{
+margin-top:100px;
+margin-bottom: 40px;
+}
+.testimonial {
+	background: #fff;
+	text-align: center;
+	padding: 50px 30px 50px;
+	margin: 0 12px 100px;
+	position: relative;
+	border-radius: 10px;
+}
+.testimonial-title h2{
+font-size: 30px;
+line-height: 46px;
+margin: auto auto 60px;
+width: 70%;
+}
+@media only screen and (max-width:768px) {
+.testimonial-title h2{
+padding:0px 10px;
+width: 100%;
+}
+}
+.testimonial .description {
+	text-align: left;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.testimonial .testimonial-content{
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+.testimonial .pic {
+	border-radius: 50%;
+	display: inline-block;
+	margin-bottom: 5px;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+.testimonial .pic img{
+    width: 90px;
+    height: auto;
+}
+.testimonial .title {
+	font-size: 20px;
+	font-weight: 800;
+	color:#fff;
+	text-transform: capitalize;
+	margin: 0 0 5px 0;
+}
+.testimonial .post{
+    display: block;
+    font-size: 16px;
+    color: #2eca7f;
+}
+
+@media only screen and (max-width: 650px) and (min-width: 400px){
+    .testimonial:before{ border-right: 325px solid transparent; }
+    .testimonial:after{ border-left: 325px solid transparent; }
+}
+.owl-theme{-webkit-transition:0.4s;-o-transition:0.4s;transition:0.4s;}
+.owl-theme .owl-controls{
+    width: 100%;
+    height: 50px;
+	display: block!important;
+    opacity: 1;
+    position: absolute;
+    top: -22%;
+	-webkit-transition:0.4s;
+	-o-transition:0.4s;
+	transition:0.4s;
+}
+.owl-theme .owl-controls .owl-buttons div {
+	width: 36px;
+	height: 36px;
+	line-height: 32px;
+	opacity: 1;
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.4);
+	border:1px solid rgba(255, 255, 255, 0.4);
+	-webkit-transition: 0.4s;
+	-o-transition: 0.4s;
+	transition: 0.4s;
+	-webkit-box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
+	        box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
+}
+
+.owl-theme .owl-controls .owl-buttons div:hover{
+background:#fff;
+border:1px solid #eee;
+display:block;
+}
+.owl-prev{
+    position: absolute;
+    left:90%;
+}
+.owl-next{
+    position: absolute;
+    right: 1%;
+}
+.owl-prev:after,
+.owl-next:after{
+    content: "\f104";
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    color: #232a34;
+    opacity: 1;
+}
+.owl-next:after{ content: "\f105"; }
+@media only screen and (max-width: 768px){
+    .owl-theme .owl-controls{ margin-top: 20px; }
+	 .owl-theme .owl-controls{display:none!important; }
+}
+/*END TESTIMONIAL*/
+/*
+* ----------------------------------------------------------------------------------------
+* 03. END SERVICE CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 04. START PORTFILIO PAGE DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+.box {
+	overflow: hidden;
+	position: relative;
+	background: #fff;
+	padding: 10px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+.box:after{
+	content: "";
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.99);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transform-origin: 50% -50% 0;
+    visibility: hidden;
+    transition: all 0.5s ease 0s;
+}
+.box:hover:after{
+    transform: rotateY(0deg);
+    visibility: visible;
+    opacity:0.9;
+}
+.box img{
+    width: 100%;
+    height: auto;
+}
+.box .box-content{
+    text-align: left;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    transform: translate(0%, 0%);
+    transition: all 0.5s ease 0s;
+	width: 90%;
+	bottom: 20px;
+	background-color: #fff;
+	padding: 15px 20px;
+}
+.box:hover .box-content{
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.box .title{
+	margin-bottom: 0px;
+}
+.box .title a {
+	color: #1a2d62;
+	font-size: 20px;
+	font-weight:800;
+	margin-top: 0;
+	text-transform: capitalize;
+	/* letter-spacing: 1px; */
+}
+.port-cat {
+	font-size: 14px;
+	color: #777;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+.port-icon{
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #000;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	z-index: 99;
+	opacity: 1;
+	display: inline-block;
+	text-align: center;
+	font-size: 14px;
+}
+.port-icon:hover i{color:#fff;}
+/*project modal*/
+.modal-title {
+    color: #232434;
+    margin: 0;
+    text-transform: uppercase;
+}
+.modal-content {
+    padding: 10px 30px;
+    border-radius: 0px;
+}
+.modal-body { margin-bottom: 15px }
+.modal-body img {
+	width: 100%;
+}
+.modal-body p { margin: 15px 0 0 }
+.project-list { margin-top: 30px }
+.project-list label {
+	color: #232434;
+	margin-bottom: 0;
+	margin-right: 0;
+	width: 120px;
+}
+.project-list li {
+    padding: 7px 0;
+    font-size: 16px;
+}
+.project-list li a {
+    color: #232434;
+    margin-bottom: 0;
+    margin-right: 7px;
+font-weight: 600;
+
+}
+.project-list li a:hover { color: #2eca7f; }
+/*End project modal*/
+/*
+* ----------------------------------------------------------------------------------------
+* 04. END PORTFILIO PAGE DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 05. START BLOG CSS DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+.single_blog {
+	background: #fff;
+	border-radius:5px;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 10px 15px 18px rgba(23, 23, 36, 0.03);
+	        box-shadow: 10px 15px 18px rgba(23, 23, 36, 0.03);
+}
+.single_blog img {
+	width: 100%;
+}
+.content_box{padding: 35px;}
+.single_blog h2 {
+	line-height: 32px;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.single_blog h2 a {
+	color: #232434;
+	font-weight: 800;
+}
+.single_blog h2 a:hover{color:#2eca7f;}
+.single_blog p{margin-bottom:0px;}
+.single_blog span {
+	text-transform: capitalize;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.single_blog span a{
+color:#232434;
+font-weight:600;
+}
+.single_blog span a:hover{color:#2eca7f;}
+.single_blog_two span{margin-top:0px;}
+.single_blog_two p{margin-bottom:30px;}
+/*
+* ----------------------------------------------------------------------------------------
+* 05. END BLOG CSS DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 06.START CONTACT DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+.contact {
+	margin-bottom: 40px;
+}
+.contact label {
+	margin-bottom: 5px;
+	font-weight: 500;
+	color:#fff;
+}
+.contact input {
+	background: #f4f4f4;
+	border: 1px solid #f4f4f4;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	color: #1a2d62;
+	font-size: 16px;
+	font-weight: 400;
+	height: 70px;
+	padding: 10px 10px 10px 30px;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.contact textarea {
+	background: #f4f4f4;
+	border: 1px solid #f4f4f4;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	color: #1a2d62;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 10px 10px 10px 30px;
+	width: 100%;
+	margin-bottom:30px;
+}
+.contact input:focus {
+background: #f4f4f4;
+	border: 1px solid #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    outline: 0 none;
+	color: #1a2d62;
+}
+.contact textarea:focus {
+background: #f4f4f4;
+border: 1px solid #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+	color: #1a2d62;
+}
+@media only screen and (max-width:480px) {
+    .single_address{margin-bottom:30px; }
+}
+.single_address i {
+	color: #2eca7f;
+	font-size: 42px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.single_address h4{
+color:#fff;
+text-transform: capitalize;
+margin-bottom: 20px;
+font-weight: 600;
+}
+.single_address p{color:#fff;}
+.sabr {
+	border-right: 1px solid #333;
+	border-left: 1px solid #333;
+}
+.add_mb{
+margin-top:40px;
+margin-bottom:60px;
+}
+/*
+* ----------------------------------------------------------------------------------------
+* 06.END CONTACT DESIGN
+* ----------------------------------------------------------------------------------------
+*/
