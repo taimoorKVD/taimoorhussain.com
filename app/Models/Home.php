@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static first()
- * @method static select(string $string, string $string1, string $string2)
+ * @method static select(string $string, string $string1, string $string2, string $string3, string $string4)
  * @method static create(string[] $array)
  * @method static truncate()
  */
@@ -17,8 +17,7 @@ class Home extends Model
 
     protected $guarded = [];
 
-    public function socialLinks(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(HomeSocialLink::class, 'home_id');
-    }
+    protected $casts = [
+        'social_link' => 'array'
+    ];
 }

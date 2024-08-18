@@ -60,7 +60,7 @@ class HomeResource extends Resource
                     ]),
                 Forms\Components\Section::make('Cover Information')
                     ->schema([
-                        Forms\Components\FileUpload::make('bg-image')
+                        Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
                             ->directory('website/image/covers')
@@ -68,8 +68,7 @@ class HomeResource extends Resource
                     ]),
                 Forms\Components\Section::make('Socialize Information')
                     ->schema([
-                        Repeater::make('home_social_links')
-                            ->relationship('socialLinks')
+                        Repeater::make('social_link')
                             ->schema([
                                 TextInput::make('link')
                                     ->required(),
@@ -90,7 +89,7 @@ class HomeResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('bg-image')
+                ImageColumn::make('image')
                     ->label('Cover')
                     ->circular(),
                 TextColumn::make('title'),
@@ -135,7 +134,7 @@ class HomeResource extends Resource
                     ])->columns(2),
                 Section::make('Cover Information')
                     ->schema([
-                        ImageEntry::make('bg-image')
+                        ImageEntry::make('image')
                             ->label('Uploaded Image')
                             ->extraImgAttributes([
                                 'alt' => 'Logo',
@@ -144,7 +143,7 @@ class HomeResource extends Resource
                     ]),
                 Section::make('Socialize Information')
                     ->schema([
-                        RepeatableEntry::make('socialLinks')
+                        RepeatableEntry::make('social_link')
                             ->schema([
                                 TextEntry::make('link'),
                                 ImageEntry::make('svg')

@@ -15,13 +15,7 @@ class PageController extends Controller
     public function __invoke(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         return view('website.index')
-            ->with('home', Home::with(['socialLinks' => function ($query) {
-                $query->select('home_id', 'link', 'svg');
-            }])
-                ->select('id', 'title', 'description', 'bg-image')
-                ->first()
-                ->toArray()
-            )
+            ->with('home', Home::select('id', 'title', 'description', 'image', 'social_link')->first()->toArray())
             ->with('about', About::select('title', 'description', 'image', 'skill', 'email', 'contact', 'nationality')->first()->toArray());
     }
 }

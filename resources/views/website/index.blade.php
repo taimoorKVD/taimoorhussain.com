@@ -43,13 +43,13 @@
 
 <!-- / HOME CONTENT-1 -->
 <div id="content-1" class="content content--switch content--switch-current"
-     style="background-image: url('{{ asset($home['bg-image']) }}')">
+     style="background-image: url('{{ asset($home['image']) }}')">
     <h2 class="content__title">{{ $home['title'] }}</h2>
     <div class="content__subtitle">{!! $home['description'] !!}</div>
-    @if(count($home['social_links']) > 0)
+    @if(count($home['social_link']) > 0)
         <div class="top_social_profile">
             <ul>
-                @foreach($home['social_links'] as $socialLink)
+                @foreach($home['social_link'] as $socialLink)
                     <li>
                         <a href="{{$socialLink['link']}}" target="_blank" class="top_f_facebook">
                             <img src="{{ asset($socialLink['svg']) }}" alt="{{ $socialLink['link'] }}"/>
