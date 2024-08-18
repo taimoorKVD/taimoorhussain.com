@@ -69,101 +69,63 @@
             <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                  data-wow-offset="0">
                 <div class="about_img">
-                    <img src="{{ asset('website/img/profile-pic.jpeg') }}" class="img-fluid" alt="profile-picture"/>
+                    <img src="{{ asset($about['image']) }}" class="img-fluid" alt="profile-picture"/>
                 </div>
             </div><!-- / END COL -->
             <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
                  data-wow-offset="0">
                 <div class="about_info">
                     <h4>About Me</h4>
-                    <h3>A Software Engineer with 4+ years of experience</h3>
-                    <p>I am Mohammad Taimoor Hussain, a dedicated backend developer with extensive expertise in PHP and
-                        its popular frameworks, such as Laravel and CodeIgniter.</p>
-                    <h4>💼 Specialties and Experience:</h4>
-                    <p>✅ Specialize in Laravel, renowned for crafting robust backend solutions tailored to diverse
-                        domains including eCommerce, point-of-sale (POS), multi-vendor platforms, and content management
-                        systems (CMS).</p>
-                    <p>✅ Provide custom PHP development services, delivering tailored functionalities meticulously
-                        designed to meet precise requirements and enhance project outcomes.</p>
-                    <p>✅ Leverage the capabilities of CodeIgniter to develop scalable backend applications, including
-                        customer relationship management (CRM) and point-of-sale (POS) systems.</p>
-                    <p>✅ Adopt a strategic approach to ensure the delivery of powerful and efficient solutions that
-                        adeptly cater to the diverse needs of businesses across industries.</p>
-                    <h4>💡 Education:</h4>
-                    <p>✅ Bachelor in Software Engineering (S.E.) from Ilma University.</p>
-                    <p>✅ Currently, I am leveraging my expertise at Kingdom Vision, where I focus on PHP, Laravel,
-                        Node.js, React.js, and Vue.js development.</p>
+                    <h3>{{ $about['title'] }}</h3>
+                    {!! $about['description'] !!}
                     <div class="basic-info">
                         <div class="single-basic-info">
-                            <p>Email: <br/><span style="font-size: 12px !important;">contact@taimoorhussain.com</span>
+                            <p>Email:
+                                <br/>
+                                <span style="font-size: 12px !important;"><strong>{{ $about['email'] }}</strong></span>
                             </p>
                         </div>
-                        <div class="single-basic-info">
-                            <p>Phone: <br/><span style="font-size: 12px !important;">+92-313-1094717</span></p>
+                        <div class="single-basic-info" style="margin-left: 50px;">
+                            <p>Phone:
+                                <br/>
+                                <span style="font-size: 12px !important;"><strong>{{ $about['contact'] }}</strong></span>
+                            </p>
                         </div>
-                        <div class="single-basic-info">
-                            <p>Nationality: <br/><span style="font-size: 12px !important;">Karachi, PK.</span></p>
+                        <div class="single-basic-info" style="margin-left: 20px;">
+                            <p>Nationality:
+                                <br/>
+                                <span style="font-size: 12px !important;"><strong>{{ $about['nationality'] }}</strong></span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div><!-- / END COL -->
         </div><!-- / END ROW -->
-        <div class="row skill_mt">
-            <div class="section-title-two">
-                <h2>My skill achievement</h2>
+
+        @if(count($about['skill']) > 0)
+            <div class="row skill_mt">
+                <div class="section-title-two">
+                    <h2>My skill achievement</h2>
+                </div>
+                <div class="col-lg-8 offset-lg-2 col-sm-12 col-xs-12">
+                    @foreach($about['skill'] as $skill)
+                        <div class="progress-bar-linear">
+                            <p class="progress-bar-text">
+                                {{ $skill['name'] }}
+                                <span>{{$skill['percentage']}}%</span>
+                            </p>
+                            <div class="progress-bar" style="background:white;">
+                                <span data-percent="{{$skill['percentage']}}" style="background-color: {{$skill['color']}}"></span>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <!-- / END COL -->
             </div>
-            <div class="col-lg-8 offset-lg-2 col-sm-12 col-xs-12">
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">Laravel
-                        <span>70%</span>
-                    </p>
-                    <div class="progress-bar pb1">
-                        <span data-percent="70"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">Codeigniter
-                        <span>55%</span>
-                    </p>
-                    <div class="progress-bar pb2">
-                        <span data-percent="55"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">Core PHP
-                        <span>70%</span>
-                    </p>
-                    <div class="progress-bar pb3">
-                        <span data-percent="70"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">Node JS
-                        <span>45%</span>
-                    </p>
-                    <div class="progress-bar pb3">
-                        <span data-percent="45"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">Vue JS
-                        <span>50%</span>
-                    </p>
-                    <div class="progress-bar pb4">
-                        <span data-percent="50"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-                <div class="progress-bar-linear">
-                    <p class="progress-bar-text">React JS
-                        <span>30%</span>
-                    </p>
-                    <div class="progress-bar pb4">
-                        <span data-percent="30"></span>
-                    </div>
-                </div><!--END PROGRESS BAR -->
-            </div><!-- / END COL -->
-        </div><!-- / END ROW -->
-    </div><!-- END CONTAINER  -->
+            <!-- / END ROW -->
+        @endif
+    </div>
+    <!-- END CONTAINER  -->
 </div>
 <!-- / END ABOUT CONTENT-2 -->
 

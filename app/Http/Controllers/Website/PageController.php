@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Home;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -20,6 +21,7 @@ class PageController extends Controller
                 ->select('id', 'title', 'description', 'bg-image')
                 ->first()
                 ->toArray()
-            );
+            )
+            ->with('about', About::select('title', 'description', 'image', 'skill', 'email', 'contact', 'nationality')->first()->toArray());
     }
 }
