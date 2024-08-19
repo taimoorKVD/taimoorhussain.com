@@ -6,7 +6,7 @@
     <title>Portfolio | MTH</title>
     <meta name="description" content="Mr. Taimoor Hussain - Portfolio">
     <meta name="author" content="https://github.com/taimoorKVD">
-    <link rel="shortcut icon" href="{{ asset('website/img/fav-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('website/images/favicon/fav-icon.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('website/bootstrap/css/bootstrap.min.css') }}">
@@ -195,7 +195,7 @@
                             amet elementum vel vehicula.
                         </p>
                         <div class="testimonial-content">
-                            <div class="pic"><img src="img/img-1.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('website/images/img-1.jpg') }}" class="img-fluid" alt=""></div>
                             <h3 class="title">Mark Linomi</h3>
                             <span class="post">Mr. Taimoor Hussain INC</span>
                         </div>
@@ -206,7 +206,7 @@
                             amet elementum vel vehicula.
                         </p>
                         <div class="testimonial-content">
-                            <div class="pic"><img src="img/img-2.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('website/images/img-2.jpg') }}" class="img-fluid" alt=""></div>
                             <h3 class="title">Amira Yerden</h3>
                             <span class="post">Mr. Taimoor Hussain INC</span>
                         </div>
@@ -217,7 +217,7 @@
                             amet elementum vel vehicula.
                         </p>
                         <div class="testimonial-content">
-                            <div class="pic"><img src="img/img-3.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('website/images/img-3.jpg') }}" class="img-fluid" alt=""></div>
                             <h3 class="title">Steve Thomas</h3>
                             <span class="post">Mr. Taimoor Hussain INC</span>
                         </div>
@@ -228,7 +228,7 @@
                             amet elementum vel vehicula.
                         </p>
                         <div class="testimonial-content">
-                            <div class="pic"><img src="img/img-4.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('website/images/img-4.jpg') }}" class="img-fluid" alt=""></div>
                             <h3 class="title">Marina Mojo</h3>
                             <span class="post">Mr. Taimoor Hussain INC</span>
                         </div>
@@ -239,7 +239,7 @@
                             amet elementum vel vehicula.
                         </p>
                         <div class="testimonial-content">
-                            <div class="pic"><img src="img/img-1.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('website/images/img-1.jpg') }}" class="img-fluid" alt=""></div>
                             <h3 class="title">Fennouni Ayoub</h3>
                             <span class="post">Mr. Taimoor Hussain INC</span>
                         </div>
@@ -261,108 +261,114 @@
         <div class="row portfolio_item">
             <div class="col-xs-12 col-sm-6 col-lg-4">
                 <div class="box">
-                    <img src="img/portfolio/1.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/1.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal">App
                                 Landing</a></h3>
                         <span class="port-cat">Branding , Design</span>
-                        <a href="img/portfolio/1.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/1.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/2.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/2.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal2">Medical
                                 Concept</a></h3>
                         <span class="port-cat">Design , Development</span>
-                        <a href="img/portfolio/2.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/2.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/3.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/3.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal3">Increase
                                 Sale</a></h3>
                         <span class="port-cat">Marketing</span>
-                        <a href="img/portfolio/3.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/3.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/4.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/4.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal4">Marketing
                                 Page</a></h3>
                         <span class="port-cat">Marketing</span>
-                        <a href="img/portfolio/4.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/4.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/5.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/5.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal5">Restaurant
                                 Design</a></h3>
                         <span class="port-cat">Product</span>
-                        <a href="img/portfolio/5.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/5.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/6.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/6.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal6">App
                                 Concept</a></h3>
                         <span class="port-cat">Product</span>
-                        <a href="img/portfolio/6.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/6.jpg') }}" class="port-icon lightbox"
+                           data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/7.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/7.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal4">Landing
                                 Page</a></h3>
                         <span class="port-cat">Marketing</span>
-                        <a href="img/portfolio/7.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/7.jpg') }}" class="port-icon lightbox" data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/8.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/8.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal5">UI/UX
                                 Design</a></h3>
                         <span class="port-cat">Product</span>
-                        <a href="img/portfolio/8.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/8.jpg') }}" class="port-icon lightbox" data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
             </div><!--- END COL -->
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
-                    <img src="img/portfolio/9.jpg" alt="">
+                    <img src="{{ asset('website/images/portfolio/9.jpg') }}" alt="">
                     <div class="box-content">
                         <h3 class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#projectModal6">App
                                 Concept</a></h3>
                         <span class="port-cat">Product</span>
-                        <a href="img/portfolio/9.jpg" class="port-icon lightbox" data-gall="gall-work"><i
+                        <a href="{{ asset('website/images/portfolio/9.jpg') }}" class="port-icon lightbox" data-gall="gall-work"><i
                                 class="ti-plus"></i></a>
                     </div>
                 </div>
@@ -376,7 +382,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/1.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/1.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -400,7 +406,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/2.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/2.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -424,7 +430,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/3.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/3.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -448,7 +454,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/4.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/4.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -472,7 +478,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/5.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/5.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -496,7 +502,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/portfolio/6.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/portfolio/6.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -527,7 +533,7 @@
             <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                  data-wow-offset="0">
                 <div class="single_blog">
-                    <img src="img/blog/1.jpg" class="img-fluid" alt="image"/>
+                    <img src="{{ asset('website/images/blog/1.jpg') }}" class="img-fluid" alt="image"/>
                     <div class="content_box">
                         <span>Sep 15, 2023 | <a href="#" data-bs-toggle="modal"
                                                 data-bs-target="#blogModal">Design</a></span>
@@ -541,7 +547,7 @@
             <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                  data-wow-offset="0">
                 <div class="single_blog">
-                    <img src="img/blog/2.jpg" class="img-fluid" alt="image"/>
+                    <img src="{{ asset('website/images/blog/2.jpg') }}" class="img-fluid" alt="image"/>
                     <div class="content_box">
                         <span>Sep 16, 2023 | <a href="#" data-bs-toggle="modal"
                                                 data-bs-target="#blogModal2">Photo</a></span>
@@ -555,7 +561,7 @@
             <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
                  data-wow-offset="0">
                 <div class="single_blog">
-                    <img src="img/blog/3.jpg" class="img-fluid" alt="image"/>
+                    <img src="{{ asset('website/images/blog/3.jpg') }}" class="img-fluid" alt="image"/>
                     <div class="content_box">
                         <span>Sep 17, 2023 | <a href="#" data-bs-toggle="modal"
                                                 data-bs-target="#blogModal3">Marketing</a></span>
@@ -574,7 +580,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/blog/1.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/blog/1.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -596,7 +602,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/blog/3.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/blog/3.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -618,7 +624,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="img/blog/3.jpg" class="img-fluid" alt=""/>
+                            <img src="{{ asset('website/images/blog/3.jpg') }}" class="img-fluid" alt=""/>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
                                 velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
                                 mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
@@ -863,7 +869,7 @@
             });
         });
         $(document).on('keyup', '#name, #email, #subject, #message', function () {
-           $(this).removeClass('is-invalid');
+            $(this).removeClass('is-invalid');
         });
     });
 </script>
