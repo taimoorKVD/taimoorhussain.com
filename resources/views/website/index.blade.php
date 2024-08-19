@@ -88,13 +88,15 @@
                         <div class="single-basic-info" style="margin-left: 50px;">
                             <p>Phone:
                                 <br/>
-                                <span style="font-size: 12px !important;"><strong>{{ $about['contact'] }}</strong></span>
+                                <span
+                                    style="font-size: 12px !important;"><strong>{{ $about['contact'] }}</strong></span>
                             </p>
                         </div>
                         <div class="single-basic-info" style="margin-left: 20px;">
                             <p>Nationality:
                                 <br/>
-                                <span style="font-size: 12px !important;"><strong>{{ $about['nationality'] }}</strong></span>
+                                <span
+                                    style="font-size: 12px !important;"><strong>{{ $about['nationality'] }}</strong></span>
                             </p>
                         </div>
                     </div>
@@ -115,7 +117,8 @@
                                 <span>{{$skill['percentage']}}%</span>
                             </p>
                             <div class="progress-bar" style="background:white;">
-                                <span data-percent="{{$skill['percentage']}}" style="background-color: {{$skill['color']}}"></span>
+                                <span data-percent="{{$skill['percentage']}}"
+                                      style="background-color: {{$skill['color']}}"></span>
                             </div>
                         </div>
                     @endforeach
@@ -136,263 +139,52 @@
             <h4>Top services</h4>
             <h2>Services I provide.</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-flag ss_one"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal">Web <br/>Development</a>
-                        </h2>
-                    </div>
-                    <p>Building tailor-made web applications using Laravel & CodeIgniter.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-pencil-alt ss_two"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal2"> API <br/>Integration</a>
-                        </h2>
-                    </div>
-                    <p>Designing and implementing secure and scalable RESTful APIs for various applications.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-light-bulb ss_three"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal3">Full-Stack <br/>Development</a>
-                        </h2>
-                    </div>
-                    <p>Combining PHP with front-end technologies like Vue.js & React for full-stack development.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-desktop ss_four"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal4">DB Design &
-                                Optimization</a>
-                        </h2>
-                    </div>
-                    <p>Designing and implementing efficient databases using MySQL, MariaDB, or PostgreSQL.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-world ss_five"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal5">Performance
-                                Optimization</a></h2>
-                    </div>
-                    <p>Analyzing and refactoring PHP code to improve performance and scalability.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-package ss_six"></span>
-                        <h2><a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal6">DevOps & Deployment</a>
-                        </h2>
-                    </div>
-                    <p>Setting up Continuous Integration & Deployment (CI/CD) pipelines for automated testing and
-                        deployment.</p>
-                </div>
-            </div>
-            <!-- END COL -->
-            <div tabindex="0" class="modal fade" id="serviceModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        @if(count($services) > 0)
+            <div class="row">
+                @foreach($services as $service)
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="single_feature_one">
+                            <div class="sf_top">
+                                <span class="ti-flag ss_one"></span>
+                                <h2>
+                                    <a href="#" data-bs-toggle="modal"
+                                       data-bs-target="#service-{{$service['id']}}">{{ $service['title'] }}</a>
+                                </h2>
+                            </div>
+                            <p>{!! $service['description'] !!}</p>
                         </div>
-                        <div class="modal-body">
-                            <img src="{{ asset('website/img/service/ci-laravel.png') }}" class="img-fluid"
-                                 alt="{{ asset('website/img/service/ci-laravel.png') }}"/>
-                            <ul>
-                                <li>
-                                    <p>Design and develop web applications precisely customized to fit unique business
-                                        needs and objectives.</p>
-                                </li>
-                                <li>
-                                    <p>Leverage advanced features of leading PHP frameworks like Laravel and CodeIgniter
-                                        for rapid and reliable development.</p>
-                                </li>
-                                <li>
-                                    <p>Ensure that applications are built to scale efficiently, handling growth in users
-                                        and data without compromising performance.</p>
-                                </li>
-                                <li>
-                                    <p>Implement best practices in security to protect data and ensure compliance with
-                                        industry standards.</p>
-                                </li>
-                                <li>
-                                    <p>Integrate custom web applications with existing systems, third-party services, or
-                                        APIs to enhance functionality.</p>
-                                </li>
-                                <li>
-                                    <p>Focus on creating intuitive and responsive user interfaces for an enhanced user
-                                        experience across all devices.</p>
-                                </li>
-                                <li>
-                                    <p>Provide continuous maintenance, updates, and support to ensure the application
-                                        remains functional and up-to-date.</p>
-                                </li>
-                                <li>
-                                    <p>Build applications with a modular architecture, allowing for easier updates,
-                                        feature additions, and future expansions.</p>
-                                </li>
-                            </ul>
+                    </div>
+                    <div tabindex="0" class="modal fade" id="service-{{$service['id']}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">{{ $service['title'] }}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{ asset($service['image']) }}" class="img-fluid"
+                                         alt="{{ asset($service['image']) }}"/>
+                                    <ul>
+                                        @forelse($service['detail'] as $detail)
+                                            <li>
+                                                <p>{{ $detail['value'] }}</p>
+                                            </li>
+                                        @empty
+                                            <p style="text-align: center">No detail found.</p>
+                                        @endforelse
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
+                    </div>
+                @endforeach
             </div>
-            <!-- /.END MODAL -->
-            <div tabindex="0" class="modal fade" id="serviceModal2">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="{{ asset('website/img/service/api-integration.png') }}" class="img-fluid"
-                                 alt="{{ asset('website/img/service/api-integration.png') }}"/>
-                            <ul>
-                                <li>
-                                    <p>Design and implement RESTful APIs that prioritize security and scalability to
-                                        handle growing demands.</p>
-                                </li>
-                                <li>
-                                    <p>Ensure APIs adhere to RESTful principles and industry standards for consistency
-                                        and reliability.</p>
-                                </li>
-                                <li>
-                                    <p>Develop custom APIs tailored to specific application requirements, enabling
-                                        seamless communication between systems.</p>
-                                </li>
-                                <li>
-                                    <p>Optimize APIs for efficient data retrieval and processing, reducing latency and
-                                        improving performance.</p>
-                                </li>
-                                <li>
-                                    <p>Implement API versioning and provide comprehensive documentation for easy
-                                        integration and future updates.</p>
-                                </li>
-                                <li>
-                                    <p>Seamlessly integrate payment gateways like Stripe and PayPal to enable secure and
-                                        smooth transactions.</p>
-                                </li>
-                                <li>
-                                    <p>Connect applications to social media platforms through API integrations, enabling
-                                        features like social login, sharing, and data retrieval.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-            <!-- /.END MODAL -->
-            <div tabindex="0" class="modal fade" id="serviceModal3">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="img/service/3.jpg" class="img-fluid" alt=""/>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
-                                velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
-                                mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
+    @endif
+    <!-- END ROW -->
+    </div>
+    <!-- END CONTAINER -->
 
-                            <p>Nam mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-            <!-- /.END MODAL -->
-            <div tabindex="0" class="modal fade" id="serviceModal4">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="img/service/4.jpg" class="img-fluid" alt=""/>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
-                                velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
-                                mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-
-                            <p>Nam mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-            <!-- /.END MODAL -->
-            <div tabindex="0" class="modal fade" id="serviceModal5">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="img/service/2.jpg" class="img-fluid" alt=""/>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
-                                velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
-                                mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-
-                            <p>Nam mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-            <!-- /.END MODAL -->
-            <div tabindex="0" class="modal fade" id="serviceModal6">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Service Overview</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="img/service/3.jpg" class="img-fluid" alt=""/>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor massa sed
-                                velit egestas vulputate. Morbi turpis tellus, porta in cursus at, finibus vitae dui. Nam
-                                mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-
-                            <p>Nam mollis quam a sem iaculis euismod. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Sed ac pharetra justo, vel dapibus tortor.
-                                Etiam laoreet imperdiet varius.</p>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-            <!-- /.END MODAL -->
-        </div><!-- END ROW -->
-    </div><!-- END CONTAINER -->
     <div class="container d-none">
         <div class="row">
             <div class="col-lg-12">
@@ -455,7 +247,8 @@
                 </div>
             </div><!-- END COL-->
         </div><!-- END ROW -->
-    </div><!-- END CONTAINER -->
+    </div>
+    <!-- END CONTAINER -->
 </div>
 <!-- / END CONTENT-3 -->
 
@@ -852,7 +645,7 @@
                 <div class="single_address">
                     <i class="ti-map"></i>
                     <h4>Our Location</h4>
-                    <p>3481 Melrose Place, Beverly Hills <br/> CA 90210</p>
+                    <p>{{ $about['address'] }}</p>
                 </div>
             </div><!-- END COL -->
             <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
@@ -860,8 +653,7 @@
                 <div class="single_address sabr">
                     <i class="ti-mobile"></i>
                     <h4>Telephone</h4>
-                    <p>(+1) 517 397 7100</p>
-                    <p>(+1) 411 315 8138</p>
+                    <p>{{ $about['contact'] }}</p>
                 </div>
             </div><!-- END COL -->
             <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
@@ -869,8 +661,7 @@
                 <div class="single_address">
                     <i class="ti-email"></i>
                     <h4>Send email</h4>
-                    <p>Info@example.com</p>
-                    <p>admin@example.com</p>
+                    <p>{{ $about['email'] }}</p>
                 </div>
             </div><!-- END COL -->
         </div><!--- END ROW -->
@@ -879,31 +670,37 @@
         <div class="section-title-two">
             <h2>Send your message.</h2>
         </div>
+        <div id="response-message"></div>
         <div class="row">
             <div class="offset-lg-1 col-lg-10 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s"
                  data-wow-delay="0.2s" data-wow-offset="0">
                 <div class="contact">
-                    <form class="form" name="enq" method="post" action="contact.php" onsubmit="return validation();">
+                    <form id="contact-form" class="form" name="enq">
+                        @csrf
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                       required="required">
+                                <label for="name">Name <span class="text-danger">*</span></label>
+                                <input type="text" id="name" name="name" class="form-control"
+                                       placeholder="Enter your name...">
+                                <div class="invalid-feedback name mb-3"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Your Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Your Email"
-                                       required="required">
+                                <label for="email">Email <span class="text-danger">*</span></label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                       placeholder="Enter your email...">
+                                <div class="invalid-feedback email mb-3"></div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label>Your Subject</label>
-                                <input type="text" name="subject" class="form-control" placeholder="Subject"
-                                       required="required">
+                                <label for="subject">Subject <span class="text-danger">*</span></label>
+                                <input type="text" id="subject" name="subject" class="form-control"
+                                       placeholder="Give us a brief subject line...">
+                                <div class="invalid-feedback subject mb-3"></div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label>Your Message</label>
-                                <textarea rows="6" name="message" class="form-control" placeholder="Your Message"
-                                          required="required"></textarea>
+                                <label for="message">Message <span class="text-danger">*</span></label>
+                                <textarea rows="6" id="message" name="message" class="form-control"
+                                          placeholder="Write your message or inquiry here..."></textarea>
+                                <div class="text-danger invalid-feedback message mb-3"></div>
                             </div>
                             <div class="col-md-12 text-center">
                                 <button type="submit" value="Send message" name="submit" id="submitButton"
@@ -1016,11 +813,59 @@
 <script src="{{ asset('website/js/jquery.appear.js') }}"></script>
 <script src="{{ asset('website/js/venobox.min.js') }}"></script>
 <script src="{{ asset('website/js/menu.js') }}"></script>
+<script src="{{ asset('website/js/sweetalert2.js') }}"></script>
 <script>document.documentElement.className = "js";
     var supportsCssVars = function () {
         var e, t = document.createElement("style");
         return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
     };
-    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+</script>
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    $(document).ready(function () {
+        $('#contact-form').on('submit', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '{{ route('website.contact.store') }}',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    Toast.fire({
+                        icon: "success",
+                        title: response.message
+                    });
+                    $('#contact-form')[0].reset();
+                },
+                error: function (xhr) {
+                    let errors = xhr.responseJSON.errors;
+                    if (errors) {
+                        return $.each(errors, function (key, value) {
+                            $(`#${key}`).addClass('is-invalid');
+                            $(`.${key}`).text(value[0]);
+                        });
+                    }
+                    Toast.fire({
+                        icon: "error",
+                        title: "Something went wrong. Please try again later!"
+                    });
+                }
+            });
+        });
+        $(document).on('keyup', '#name, #email, #subject, #message', function () {
+           $(this).removeClass('is-invalid');
+        });
+    });
+</script>
 </body>
 </html>

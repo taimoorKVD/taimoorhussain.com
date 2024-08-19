@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @method static where(string $string, string|null $ip)
- * @method static create(array $array)
  * @method static count()
  */
-class Visitor extends Model
+class Portfolio extends Model
 {
     use HasFactory;
 

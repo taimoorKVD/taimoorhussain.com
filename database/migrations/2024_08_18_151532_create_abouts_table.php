@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('email')->default('contact@taimoorhussain.com');
             $table->string('contact')->default('+92-313-1094717');
             $table->string('nationality')->default('Pakistani');
+            $table->string('address')->default('Block#3, SFC, Karachi, PK.');
             $table->json('skill');
             $table->timestamps();
         });

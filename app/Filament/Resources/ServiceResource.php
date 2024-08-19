@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutResource\Pages;
-use App\Models\About;
+use App\Filament\Resources\ServiceResource\Pages;
+use App\Models\Service;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Repeater;
@@ -20,31 +20,18 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
-class AboutResource extends Resource
+class ServiceResource extends Resource
 {
-    protected static ?string $model = About::class;
+    protected static ?string $model = Service::class;
 
-    protected static ?string $slug = 'website/pages/about';
+    protected static ?string $slug = 'website/pages/services';
 
-    protected static ?string $pluralLabel = 'About';
-
-    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $navigationGroup = 'Pages';
 
-    protected static ?int $navigationSort = 2;
-
-    public static function canCreate(): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -59,27 +46,21 @@ class AboutResource extends Resource
                         Forms\Components\RichEditor::make('description')
                             ->required(),
                     ]),
-                Forms\Components\Section::make('Sidebar Information')
+                Forms\Components\Section::make('Cover Information')
                     ->schema([
                         Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
-                            ->directory('website/image/about')
+                            ->directory('website/image/services')
                             ->columnSpanFull()
                     ]),
-                Forms\Components\Section::make('Skill Information')
+                Forms\Components\Section::make('Service Information')
                     ->schema([
-                        Repeater::make('skill')
+                        Repeater::make('detail')
+                            ->label('Service Details')
                             ->schema([
-                                TextInput::make('name')
+                                Forms\Components\RichEditor::make('value')
                                     ->required(),
-                                TextInput::make('percentage')
-                                    ->required()
-                                    ->numeric()
-                                    ->minValue(1)
-                                    ->maxValue(100),
-                                ColorPicker::make('color')
-                                    ->required()
                             ])
                             ->collapsible()
                             ->addActionLabel('+ Add more')
@@ -94,7 +75,11 @@ class AboutResource extends Resource
                 ImageColumn::make('image')
                     ->label('Image')
                     ->circular(),
-                TextColumn::make('title'),
+                TextColumn::make('title')
+                    ->searchable(),
+                TextColumn::make('description')
+                    ->wrap()
+                    ->searchable(),
                 TextColumn::make('updated_at')
                     ->label('Last Updated')
                     ->dateTime('d M, Y - h:i:s A')
@@ -102,16 +87,17 @@ class AboutResource extends Resource
                     ->badge()
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->slideOver(),
+                Tables\Actions\ViewAction::make()
+                    ->slideOver(),
                 Tables\Actions\EditAction::make()
                     ->successNotification(
                         Notification::make()
                             ->warning()
-                            ->title('About Successfully Updated')
-                            ->body('The about page has been successfully updated.')
+                            ->title('Service Successfully Updated')
+                            ->body('The service page has been successfully updated.')
                     )
                     ->slideOver(),
-            ])->paginated(false);
+            ]);
     }
 
     public static function infolist(Infolist $infolist): Infolist
@@ -139,15 +125,13 @@ class AboutResource extends Resource
                                 'loading' => 'lazy',
                             ]),
                     ]),
-                Section::make('Skill Information')
+                Section::make('Service Information')
                     ->schema([
-                        RepeatableEntry::make('skill')
+                        RepeatableEntry::make('detail')
+                            ->label('Service Overview')
                             ->schema([
-                                TextEntry::make('name'),
-                                TextEntry::make('percentage'),
-                                TextEntry::make('color'),
+                                TextEntry::make('value'),
                             ])
-                            ->columns(2)
                     ]),
             ]);
     }
@@ -155,7 +139,7 @@ class AboutResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAbouts::route('/'),
+            'index' => Pages\ListServices::route('/'),
         ];
     }
 }

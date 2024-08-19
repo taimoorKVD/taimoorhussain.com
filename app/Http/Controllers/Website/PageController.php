@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Home;
+use App\Models\Service;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -16,6 +17,7 @@ class PageController extends Controller
     {
         return view('website.index')
             ->with('home', Home::select('id', 'title', 'description', 'image', 'social_link')->first()->toArray())
-            ->with('about', About::select('title', 'description', 'image', 'skill', 'email', 'contact', 'nationality')->first()->toArray());
+            ->with('about', About::select('title', 'description', 'image', 'skill', 'email', 'contact', 'nationality', 'address')->first()->toArray())
+            ->with('services', Service::select('id','title', 'description', 'image', 'detail')->get()->toArray());
     }
 }
