@@ -78,6 +78,13 @@ class ContactResource extends Resource
                             ->body('The contact has been successfully updated.')
                     )
                     ->slideOver(),
+                Tables\Actions\DeleteAction::make()
+                    ->successNotification(
+                        Notification::make()
+                            ->danger()
+                            ->title('Contact Successfully Deleted')
+                            ->body('The contact has been successfully deleted.')
+                    )
             ]);
     }
 
