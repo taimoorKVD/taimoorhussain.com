@@ -2,6 +2,7 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio | MTH</title>
     <meta name="description" content="Mr. Taimoor Hussain - Portfolio">
@@ -845,6 +846,7 @@
             $.ajax({
                 url: '{{ route('website.contact.store') }}',
                 method: 'POST',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
                 data: $(this).serialize(),
                 success: function (response) {
                     Toast.fire({
