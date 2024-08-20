@@ -7,9 +7,12 @@ use App\Models\Visitor;
 use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class VisitorResource extends Resource
@@ -19,6 +22,26 @@ class VisitorResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
     protected static ?string $slug = 'website/visitors';
+
+    public static function getEloquentQuery(): Builder
+    {
+        return Visitor::latest();
+    }
+
+    public static function getCount(): int
+    {
+        return self::getEloquentQuery()->count();
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return self::getCount();
+    }
+
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return self::getCount() > 10 ? 'success' : 'info';
+    }
 
     public static function canCreate(): bool
     {
@@ -45,17 +68,38 @@ class VisitorResource extends Resource
                     ->alignCenter(),
                 Tables\Columns\TextColumn::make('location')
                     ->getStateUsing(fn($record) => $record->location ?? '-')
+                    ->searchable()
                     ->alignCenter(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Visited At')
-                    ->date()
+                    ->dateTime('d M, Y - h:i:s A')
+                    ->timezone('Asia/Karachi')
                     ->badge()
                     ->alignCenter(),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
+                Action::make('update_location')
+                    ->label('Refresh Location')
+                    ->icon('heroicon-o-arrow-path')
+                    ->color('info')
+                    ->action(function (Visitor $visitor) {
+                        $response = $visitor->updateLocation();
+                        if($response) {
+                            Notification::make()
+                                ->title("{$visitor->ip_address} location updated.")
+                                ->body("{$visitor->location} location has been updated.")
+                                ->icon('heroicon-o-arrow-path')
+                                ->color('success')
+                                ->send();
+                        } else {
+                            Notification::make()
+                                ->title("No location found.")
+                                ->body("{$visitor->ip_address} location's not found.")
+                                ->icon('heroicon-o-exclamation-triangle')
+                                ->color('danger')
+                                ->send();
+                        }
+                    }),
                 Tables\Actions\ViewAction::make()
                     ->slideOver(),
             ]);

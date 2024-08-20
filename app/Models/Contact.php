@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static count()
  * @method static create(array $validate)
+ * @method static latest()
  */
 class Contact extends Model
 {

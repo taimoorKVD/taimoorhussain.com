@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ContactResource extends Resource
 {
@@ -25,6 +26,26 @@ class ContactResource extends Resource
     protected static ?string $navigationGroup = 'Pages';
 
     protected static ?int $navigationSort = 4;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return Contact::latest();
+    }
+
+    public static function getCount(): int
+    {
+        return self::getEloquentQuery()->count();
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return self::getCount();
+    }
+
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return self::getCount() > 10 ? 'success' : 'info';
+    }
 
     public static function canCreate(): bool
     {
