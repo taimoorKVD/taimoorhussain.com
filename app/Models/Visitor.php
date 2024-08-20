@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use GeoIp2\Database\Reader;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Stevebauman\Location\Facades\Location;
 
 /**
  * @method static where(string $string, string|null $ip)
@@ -23,11 +23,10 @@ class Visitor extends Model
     public function updateLocation(): bool
     {
         try {
-            $location = Location::get($this->ip_address);
-            logger('IP Location Fetch:' . $location);
-            if($location) {
-                logger('IP Location Fetch Condition:' . $location);
-                $this->location = "{$location->cityName}  {$location->countryName}";
+            $reader = new Reader(database_path('maxmind/GeoLite2-City.mmdb'));
+            $record = $reader->city($this->ip_address);
+            if($record->city) {
+                $this->location = "{$record->city->name} {$record->country->name}";
                 $this->save();
                 return true;
             }
