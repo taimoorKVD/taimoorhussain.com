@@ -99,7 +99,7 @@ class VisitorResource extends Resource
                                 ->color('danger')
                                 ->send();
                         }
-                    }),
+                    })->hidden(fn($record) => !empty($record->location)),
                 Tables\Actions\ViewAction::make()
                     ->slideOver(),
             ]);
