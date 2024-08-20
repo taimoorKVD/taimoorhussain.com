@@ -15,6 +15,7 @@ class ListServices extends ListRecords
     {
         return [
             Actions\CreateAction::make()
+                ->label('+ Add Service')
                 ->successNotification(
                     Notification::make()
                         ->success()

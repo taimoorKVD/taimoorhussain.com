@@ -15,6 +15,7 @@ class ListPortfolios extends ListRecords
     {
         return [
             Actions\CreateAction::make()
+                ->label('+ Add Portfolio')
                 ->successNotification(
                     Notification::make()
                         ->success()

@@ -83,22 +83,19 @@ class VisitorResource extends Resource
                     ->icon('heroicon-o-arrow-path')
                     ->color('info')
                     ->action(function (Visitor $visitor) {
+                        $title = "No location found.";
+                        $body = "{$visitor->ip_address} location's not found.";
+                        $icon = 'heroicon-o-exclamation-triangle';
+                        $color = 'danger';
                         $response = $visitor->updateLocation();
-                        if($response) {
-                            Notification::make()
-                                ->title("{$visitor->ip_address} location updated.")
-                                ->body("{$visitor->location} location has been updated.")
-                                ->icon('heroicon-o-arrow-path')
-                                ->color('success')
-                                ->send();
-                        } else {
-                            Notification::make()
-                                ->title("No location found.")
-                                ->body("{$visitor->ip_address} location's not found.")
-                                ->icon('heroicon-o-exclamation-triangle')
-                                ->color('danger')
-                                ->send();
+                        if ($response) {
+                            $title = "{$visitor->ip_address} location updated.";
+                            $body = "{$visitor->location} location has been updated.";
+                            $icon = 'heroicon-o-arrow-path';
+                            $color = 'success';
                         }
+                        Notification::make()->title($title)->body($body)->icon($icon)
+                            ->color($color)->send();
                     })->hidden(fn($record) => !empty($record->location)),
                 Tables\Actions\ViewAction::make()
                     ->slideOver(),

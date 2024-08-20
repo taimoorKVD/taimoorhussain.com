@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolios', function (Blueprint $table) {
+        Schema::create('portfolios', static function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->string('category');
+            $table->string('stacks');
+            $table->string('client');
+            $table->string('date');
+            $table->string('url');
+            $table->longText('image');
             $table->timestamps();
         });
     }
