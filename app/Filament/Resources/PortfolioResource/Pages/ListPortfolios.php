@@ -20,7 +20,7 @@ class ListPortfolios extends ListRecords
                     Notification::make()
                         ->success()
                         ->title('Portfolio Successfully Created')
-                        ->body('The portfolio has been successfully created.')
+                        ->body('The portfolios has been successfully created.')
                 )
                 ->slideOver(),
         ];

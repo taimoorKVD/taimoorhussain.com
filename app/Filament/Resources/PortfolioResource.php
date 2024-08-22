@@ -151,7 +151,7 @@ class PortfolioResource extends Resource
                         return Notification::make()
                             ->warning()
                             ->title('Portfolio Successfully Updated')
-                            ->body("The {$record->title} portfolio has been successfully updated.");
+                            ->body("The {$record->title} portfolios has been successfully updated.");
                     })
                     ->slideOver(),
                 Tables\Actions\DeleteAction::make()
@@ -159,7 +159,7 @@ class PortfolioResource extends Resource
                         return Notification::make()
                             ->danger()
                             ->title('Portfolio Successfully Deleted')
-                            ->body("The {$record->title} portfolio has been successfully deleted.");
+                            ->body("The {$record->title} portfolios has been successfully deleted.");
                     })
             ]);
     }

@@ -83,9 +83,9 @@ return [
     | MaxMind Configuration
     |--------------------------------------------------------------------------
     |
-    | If web service is enabled, you must fill in your user ID and license key.
+    | If web services is enabled, you must fill in your user ID and license key.
     |
-    | If web service is disabled, it will try and retrieve the user's location
+    | If web services is disabled, it will try and retrieve the user's location
     | from the MaxMind database file located in the local path below.
     |
     | The MaxMind database file can be either City (default) or Country (smaller).

@@ -44,6 +44,13 @@ return [
             'throw' => false,
         ],
 
+        'public_folder' => [
+            'driver' => 'local',
+            'root' => public_path('website/images'),  // Adjust the path as needed
+            'url' => env('APP_URL') . 'website/images',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

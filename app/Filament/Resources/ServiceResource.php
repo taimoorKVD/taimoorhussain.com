@@ -51,7 +51,8 @@ class ServiceResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
-                            ->directory('website/image/services')
+                            ->disk('public_folder')
+                            ->directory('services')
                             ->columnSpanFull()
                     ]),
                 Forms\Components\Section::make('Service Information')
@@ -74,6 +75,7 @@ class ServiceResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Image')
+                    ->disk('public_folder')
                     ->circular(),
                 TextColumn::make('title')
                     ->searchable(),
@@ -94,7 +96,7 @@ class ServiceResource extends Resource
                         Notification::make()
                             ->warning()
                             ->title('Service Successfully Updated')
-                            ->body('The service page has been successfully updated.')
+                            ->body('The services page has been successfully updated.')
                     )
                     ->slideOver(),
             ]);
@@ -120,6 +122,7 @@ class ServiceResource extends Resource
                     ->schema([
                         ImageEntry::make('image')
                             ->label('Uploaded Image')
+                            ->disk('public_folder')
                             ->extraImgAttributes([
                                 'alt' => 'Logo',
                                 'loading' => 'lazy',

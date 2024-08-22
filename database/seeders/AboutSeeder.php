@@ -28,7 +28,7 @@ class AboutSeeder extends Seeder
                     <p>✅ Bachelor in Software Engineering (S.E.) from Ilma University.</p>
                     <p>✅ Currently, I am leveraging my expertise at Kingdom Vision, where I focus on PHP, Laravel,
                         Node.js, React.js, and Vue.js development.</p>',
-            'image' => url('website/images/about/profile-pic.jpeg'),
+            'image' => 'about/profile-pic.jpeg',
             'skill' => [
                 [
                     "name" => "Laravel",

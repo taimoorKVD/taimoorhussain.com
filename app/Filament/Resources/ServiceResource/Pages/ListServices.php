@@ -20,7 +20,7 @@ class ListServices extends ListRecords
                     Notification::make()
                         ->success()
                         ->title('Service Successfully Created')
-                        ->body('New service has been successfully created.')
+                        ->body('New services has been successfully created.')
                 )
                 ->slideOver(),
         ];

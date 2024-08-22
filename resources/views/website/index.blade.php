@@ -44,7 +44,7 @@
 
 <!-- / HOME CONTENT-1 -->
 <div id="content-1" class="content content--switch content--switch-current"
-     style="background-image: url('{{ asset($home['image']) }}')">
+     style="background-image: url({{ 'website/images'. asset($home['image']) }})">
     <h2 class="content__title">{{ $home['title'] }}</h2>
     <div class="content__subtitle">{!! $home['description'] !!}</div>
     @if(count($home['social_link']) > 0)
@@ -53,7 +53,8 @@
                 @foreach($home['social_link'] as $socialLink)
                     <li>
                         <a href="{{$socialLink['link']}}" target="_blank" class="top_f_facebook">
-                            <img src="{{ asset($socialLink['svg']) }}" alt="{{ $socialLink['link'] }}"/>
+                            <img src="{{ 'website/images'. asset($socialLink['svg']) }}"
+                                 alt="{{ $socialLink['link'] }}"/>
                         </a>
                     </li>
                 @endforeach
@@ -70,7 +71,7 @@
             <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                  data-wow-offset="0">
                 <div class="about_img">
-                    <img src="{{ asset($about['image']) }}" class="img-fluid" alt="profile-picture"/>
+                    <img src="{{ 'website/images'. asset($about['image']) }}" class="img-fluid" alt="profile-picture"/>
                 </div>
             </div><!-- / END COL -->
             <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
@@ -164,8 +165,8 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="{{ asset($service['image']) }}" class="img-fluid"
-                                         alt="{{ asset($service['image']) }}"/>
+                                    <img src="{{ 'website/images'. asset($service['image']) }}" class="img-fluid"
+                                         alt="{{ 'website/images'. asset($service['image']) }}"/>
                                     <ul>
                                         @forelse($service['detail'] as $detail)
                                             <li>
@@ -269,15 +270,15 @@
                 @foreach($portfolios as $portfolio)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="box">
-                            <img src="{{ asset($portfolio['image']) }}" alt="{{ asset($portfolio['image']) }}">
+                            <img src="{{ 'website/images'. asset($portfolio['image']) }}" alt="{{ 'website/images'. asset($portfolio['image']) }}">
                             <div class="box-content">
                                 <h3 class="title">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#project-{{$portfolio['id']}}">
-                                        {{ asset($portfolio['title']) }}
+                                        {{ $portfolio['title'] }}
                                     </a>
                                 </h3>
                                 <span class="port-cat">{{ implode(', ', $portfolio['stacks']) }}</span>
-                                <a href="{{ asset($portfolio['image']) }}" class="port-icon lightbox"
+                                <a href="{{ 'website/images'. asset($portfolio['image']) }}" class="port-icon lightbox"
                                    data-gall="gall-work"><i
                                         class="ti-plus"></i></a>
                             </div>
@@ -292,13 +293,16 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="{{ asset($portfolio['image']) }}" class="img-fluid" alt="{{ asset($portfolio['image']) }}"/>
+                                    <img src="{{ 'website/images'. asset($portfolio['image']) }}" class="img-fluid"
+                                         alt="{{ 'website/images'. asset($portfolio['image']) }}"/>
                                     {!! $portfolio['description'] !!}
                                     <ul class="list-unstyled project-list">
                                         <li><label>Client : </label> {{ ucfirst($portfolio['client']) }}</li>
                                         <li><label>Category :</label> {{ $portfolio['category'] }}</li>
                                         <li><label>Date : </label> {{ $portfolio['date'] }}</li>
-                                        <li><label>Project Url : </label> <a href="{{ $portfolio['url'] }}" target="_blank">{{ $portfolio['url'] }}</a></li>
+                                        <li><label>Project Url : </label> <a href="{{ $portfolio['url'] }}"
+                                                                             target="_blank">{{ $portfolio['url'] }}</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -310,8 +314,8 @@
             </div>
         @else
             <div class="d-flex justify-content-center">
-                <img src="{{ asset('website/images/portfolio/under-construction.png') }}"
-                     alt="{{ asset('website/images/portfolio/under-construction.png') }}">
+                <img src="{{ asset('website/images/portfolios/under-construction.png') }}"
+                     alt="{{ asset('website/images/portfolios/under-construction.png') }}">
             </div>
     @endif
     <!-- END ROW -->

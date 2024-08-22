@@ -32,9 +32,9 @@
 
 (function($) {
 	'use strict';
-	
+
 	jQuery(document).on('ready', function(){
-	
+
 		/*START PROGRESS BAR*/
 	    $('.progress-bar > span').each(function(){
 			var $this = $(this);
@@ -42,7 +42,7 @@
 			$this.css({
 				'transition' : 'width 2s'
 			});
-			
+
 			setTimeout(function() {
 				$this.appear(function() {
 						$this.css('width', width + '%');
@@ -50,24 +50,24 @@
 			}, 500);
 		});
 		/*END PROGRESS BAR*/
-	
+
 		/* START JQUERY LIGHTBOX*/
 		jQuery('.lightbox').venobox({
 			numeratio: true,
 			infinigall: true
-		});	
+		});
 		/* END JQUERY LIGHTBOX*/
 
 		/* START PORTFOLIO JS*/
-		$('.portfolio-mfp').magnificPopup({
+		$('.portfolios-mfp').magnificPopup({
 			type: 'image',
 			gallery: {
 				enabled: true
 			}
 		});
-		/* END PORTFOLIO JS*/	
-		
-		/*START TESTIMONIAL JS*/	
+		/* END PORTFOLIO JS*/
+
+		/*START TESTIMONIAL JS*/
 		 $("#testimonial-slider").owlCarousel({
 			items:3,
 			itemsDesktop:[1000,3],
@@ -80,11 +80,11 @@
 			slideSpeed:1000,
 			autoPlay:false
 		});
-		/*END TESTIMONIAL JS*/		
-}); 
-			
+		/*END TESTIMONIAL JS*/
+});
+
 })(jQuery);
 
 
-  
+
 

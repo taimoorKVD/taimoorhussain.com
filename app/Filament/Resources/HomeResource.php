@@ -63,7 +63,8 @@ class HomeResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
-                            ->directory('website/image/covers')
+                            ->disk('public_folder')
+                            ->directory('covers')
                             ->columnSpanFull()
                     ]),
                 Forms\Components\Section::make('Socialize Information')
@@ -75,10 +76,10 @@ class HomeResource extends Resource
                                 Forms\Components\FileUpload::make('svg')
                                     ->label('Upload SVG')
                                     ->required()
-                                    ->directory('website/image/social-links')
+                                    ->disk('public_folder')
+                                    ->directory('social-links')
                                     ->columnSpanFull()
                             ])
-                            ->collapsed()
                             ->collapsible()
                             ->cloneable()
                     ])
@@ -91,6 +92,7 @@ class HomeResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Cover')
+                    ->disk('public_folder')
                     ->circular(),
                 TextColumn::make('title'),
                 TextColumn::make('description')
@@ -136,6 +138,7 @@ class HomeResource extends Resource
                     ->schema([
                         ImageEntry::make('image')
                             ->label('Uploaded Image')
+                            ->disk('public_folder')
                             ->extraImgAttributes([
                                 'alt' => 'Logo',
                                 'loading' => 'lazy',
@@ -148,6 +151,7 @@ class HomeResource extends Resource
                                 TextEntry::make('link'),
                                 ImageEntry::make('svg')
                                     ->label('Uploaded SVG')
+                                    ->disk('public_folder')
                                     ->extraImgAttributes([
                                         'alt' => 'Logo',
                                         'loading' => 'lazy',

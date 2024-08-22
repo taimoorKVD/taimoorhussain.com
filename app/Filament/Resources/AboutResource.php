@@ -64,7 +64,8 @@ class AboutResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
-                            ->directory('website/image/about')
+                            ->disk('public_folder')
+                            ->directory('about')
                             ->columnSpanFull()
                     ]),
                 Forms\Components\Section::make('Skill Information')
@@ -93,6 +94,7 @@ class AboutResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Image')
+                    ->disk('public_folder')
                     ->circular(),
                 TextColumn::make('title'),
                 TextColumn::make('updated_at')
@@ -134,6 +136,7 @@ class AboutResource extends Resource
                     ->schema([
                         ImageEntry::make('image')
                             ->label('Uploaded Image')
+                            ->disk('public_folder')
                             ->extraImgAttributes([
                                 'alt' => 'Logo',
                                 'loading' => 'lazy',

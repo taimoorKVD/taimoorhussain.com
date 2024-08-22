@@ -19,7 +19,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'Web Design & Development',
                     'description' => 'Creating custom web applications tailored to specific business needs using Laravel and CodeIgniter.',
-                    'image' => url('website/img/service/ci-laravel.png'),
+                    'image' => 'services/ci-laravel.png',
                     'detail' => json_encode([
                         [
                             "value" => "Design and develop web applications precisely customized to fit unique business needs and objectives."
@@ -52,7 +52,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'RESTFul API Integration',
                     'description' => 'Designing and implementing secure and scalable RESTful APIs for various applications.',
-                    'image' => url('website/images/service/api-integration.png'),
+                    'image' => 'services/api-integration.png',
                     'detail' => json_encode([
                         [
                             "value" => "Design and implement RESTful APIs that prioritize security and scalability to handle growing demands."
@@ -82,7 +82,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'Full-Stack Development',
                     'description' => 'Combining PHP with front-end technologies like Vue.js & React for full-stack development.',
-                    'image' => url('website/images/service/fullstack-development.png'),
+                    'image' => 'services/fullstack-development.png',
                     'detail' => json_encode([
                         [
                             'value' => 'Offer end-to-end development solutions, from front-end design to back-end development, ensuring a cohesive and seamless user experience.'
@@ -106,7 +106,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'DB Design & Optimization',
                     'description' => 'Designing and implementing efficient databases using MySQL, MariaDB, or PostgreSQL.',
-                    'image' => url('website/images/service/db-design-optimize.png'),
+                    'image' => 'services/db-design-optimize.png',
                     'detail' => json_encode([
                         [
                             'value' => 'Design tailored database schemas that align with business requirements, ensuring efficient data storage, retrieval, and management.'
@@ -130,7 +130,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'Performance Optimization',
                     'description' => 'Optimizing PHP code through analysis and refactoring to enhance performance and scalability.',
-                    'image' => url('website/images/service/performance-optimize.png'),
+                    'image' => 'services/performance-optimize.png',
                     'detail' => json_encode([
                         [
                             'value' => 'Analyze and profile the application code to identify bottlenecks, then refactor the code to streamline execution, reduce processing time, and enhance overall efficiency.'
@@ -154,7 +154,7 @@ class ServiceSeeder extends Seeder
                 [
                     'title' => 'DevOps & Deployment Pipeline',
                     'description' => 'Setting up continuous integration and continuous deployment (CI/CD) pipelines for automated testing and deployment.',
-                    'image' => url('website/images/service/devops.jpg'),
+                    'image' => 'services/devops.jpg',
                     'detail' => json_encode([
                         [
                             'value' => 'Set up continuous integration and continuous deployment (CI/CD) pipelines to automate the building, testing, and deployment of applications, ensuring faster and more reliable releases.'
