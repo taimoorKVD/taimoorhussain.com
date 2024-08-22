@@ -11,6 +11,7 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -82,23 +83,24 @@ class VisitorResource extends Resource
                     ->label('Refresh Location')
                     ->icon('heroicon-o-arrow-path')
                     ->color('info')
-                    ->action(function (Visitor $visitor) {
-                        $title = "No location found.";
-                        $body = "{$visitor->ip_address} location's not found.";
-                        $icon = 'heroicon-o-exclamation-triangle';
-                        $color = 'danger';
-                        $response = $visitor->updateLocation();
-                        if ($response) {
-                            $title = "{$visitor->ip_address} location updated.";
-                            $body = "{$visitor->location} location has been updated.";
-                            $icon = 'heroicon-o-arrow-path';
-                            $color = 'success';
-                        }
-                        Notification::make()->title($title)->body($body)->icon($icon)
-                            ->color($color)->send();
+                    ->action(static function (Visitor $visitor) {
+                        self::updateLocation($visitor);
                     })->hidden(fn($record) => !empty($record->location)),
                 Tables\Actions\ViewAction::make()
                     ->slideOver(),
+            ])
+            ->bulkActions([
+                BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('update_locations')
+                        ->label('Refresh Locations')
+                        ->icon('heroicon-o-arrow-path')
+                        ->color('info')
+                        ->action(static function () {
+                            foreach (Visitor::whereNull('location')->get() as $visitor) {
+                                self::updateLocation($visitor);
+                            }
+                        }),
+                ])
             ]);
     }
 
@@ -130,5 +132,19 @@ class VisitorResource extends Resource
         return [
             'index' => Pages\ListVisitors::route('/')
         ];
+    }
+
+    public static function updateLocation($visitor): void
+    {
+        $response = $visitor->updateLocation();
+        if ($response['status']) {
+            $title = "{$visitor->ip_address} location updated.";
+            $body = "{$visitor->location} location has been updated.";
+            $icon = 'heroicon-o-arrow-path';
+            $color = 'success';
+        }
+        Notification::make()->title($title ?? "No location found.")->body($body ?? $response['message'])
+            ->icon($icon ?? 'heroicon-o-exclamation-triangle')
+            ->color($color ?? 'danger')->send();
     }
 }

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static create(array $array)
  * @method static count()
  * @method static latest()
+ * @method static whereNull(string $string)
  * @property mixed $location
  * @property mixed $ip_address
  */
@@ -20,20 +21,16 @@ class Visitor extends Model
 
     protected $guarded = [];
 
-    public function updateLocation(): bool
+    public function updateLocation(): array
     {
         try {
             $reader = new Reader(database_path('maxmind/GeoLite2-City.mmdb'));
             $record = $reader->city($this->ip_address);
-            if($record->city) {
-                $this->location = "{$record->city->name} {$record->country->name}";
-                $this->save();
-                return true;
-            }
-            return false;
+            $this->location = "{$record->city->name} {$record->country->name}";
+            $this->save();
+            return ['status' => true];
         } catch (\Exception $exception) {
-            logger('IP Location Error:' . $exception->getMessage());
-            return false;
+            return ['status' => false, 'message' => $exception->getMessage()];
         }
     }
 }
