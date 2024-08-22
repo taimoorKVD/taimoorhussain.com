@@ -115,7 +115,8 @@ class PortfolioResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Upload Image')
                             ->required()
-                            ->directory('website/image/portfolios')
+                            ->disk('public_folder')
+                            ->directory('portfolios')
                             ->columnSpanFull()
                     ]),
             ]);
@@ -127,6 +128,7 @@ class PortfolioResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Image')
+                    ->disk('public_folder')
                     ->circular(),
                 TextColumn::make('title')
                     ->searchable(),
@@ -199,6 +201,7 @@ class PortfolioResource extends Resource
                     ->schema([
                         ImageEntry::make('image')
                             ->label('Uploaded Image')
+                            ->disk('public_folder')
                             ->extraImgAttributes([
                                 'alt' => 'Logo',
                                 'loading' => 'lazy',
