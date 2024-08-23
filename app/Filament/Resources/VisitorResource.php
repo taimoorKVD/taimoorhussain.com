@@ -96,7 +96,9 @@ class VisitorResource extends Resource
                         ->icon('heroicon-o-arrow-path')
                         ->color('info')
                         ->action(static function () {
-                            foreach (Visitor::whereNull('location')->get() as $visitor) {
+                            $per_page = session()->get('tables.ListVisitors_per_page');
+                            $visitors = Visitor::whereNull('location')->limit($per_page === 'all' ? 100 : $per_page)->get();
+                            foreach ($visitors as $visitor) {
                                 self::updateLocation($visitor);
                             }
                         }),
