@@ -101,7 +101,8 @@ class VisitorResource extends Resource
                             foreach ($visitors as $visitor) {
                                 self::updateLocation($visitor);
                             }
-                        }),
+                        })
+                        ->deselectRecordsAfterCompletion(),
                 ])
             ]);
     }
