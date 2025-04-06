@@ -6,6 +6,7 @@ use App\Filament\Resources\HomeResource\Pages;
 use App\Models\Home;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
@@ -20,6 +21,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class HomeResource extends Resource
 {
@@ -49,6 +51,16 @@ class HomeResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('Module')
+                    ->schema([
+                        Select::make('domain_name')
+                            ->label('Module Name')
+                            ->options([
+                                'taimoorhussain.com' => 'Taimoor Hussain',
+                                'maazhabib.com' => 'Maaz Habib',
+                            ])
+                            ->native(false),
+                    ]),
                 Forms\Components\Section::make('Basic Information')
                     ->schema([
                         Forms\Components\TextInput::make('title')
@@ -133,6 +145,14 @@ class HomeResource extends Resource
                             ->badge(),
                         TextEntry::make('description')
                             ->html(true),
+                        TextEntry::make('domain_name')
+                            ->badge()
+                            ->color('success')
+                            ->label('Module Name')
+                            ->formatStateUsing(fn (string $state): string =>
+                            $state == 'maazhabib.com' ? 'Maaz Habib' :
+                                ($state == 'taimoorhussain.com' ? 'Taimoor Hussain' : $state)
+                            ),
                     ])->columns(2),
                 Section::make('Cover Information')
                     ->schema([

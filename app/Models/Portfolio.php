@@ -17,6 +17,10 @@ class Portfolio extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'domain_name' => 'array',
+    ];
+
     protected function stacks(): Attribute
     {
         return Attribute::make(

@@ -7,6 +7,7 @@ use App\Models\Service;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
@@ -37,6 +38,17 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('Module')
+                    ->schema([
+                        Select::make('domain_name')
+                            ->label('Module Name')
+                            ->options([
+                                'taimoorhussain.com' => 'Taimoor Hussain',
+                                'maazhabib.com' => 'Maaz Habib',
+                            ])
+                            ->native(false)
+                            ->multiple(),
+                    ]),
                 Forms\Components\Section::make('Basic Information')
                     ->schema([
                         Forms\Components\TextInput::make('title')
@@ -77,6 +89,14 @@ class ServiceResource extends Resource
                     ->label('Image')
                     ->disk('public_folder')
                     ->circular(),
+                TextColumn::make('domain_name')
+                    ->badge()
+                    ->color('success')
+                    ->label('Module Name')
+                    ->formatStateUsing(fn (string $state): string =>
+                    $state == 'maazhabib.com' ? 'Maaz Habib' :
+                        ($state == 'taimoorhussain.com' ? 'Taimoor Hussain' : $state)
+                    ),
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('description')
@@ -114,6 +134,14 @@ class ServiceResource extends Resource
                             ->dateTime('d M, Y - h:i:s A')
                             ->timezone('Asia/Karachi')
                             ->badge(),
+                        TextEntry::make('domain_name')
+                            ->badge()
+                            ->color('success')
+                            ->label('Module Name')
+                            ->formatStateUsing(fn (string $state): string =>
+                            $state == 'maazhabib.com' ? 'Maaz Habib' :
+                                ($state == 'taimoorhussain.com' ? 'Taimoor Hussain' : $state)
+                            ),
                         TextEntry::make('description')
                             ->columnSpanFull()
                             ->html(true),

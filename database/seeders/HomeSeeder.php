@@ -17,11 +17,32 @@ class HomeSeeder extends Seeder
             'title' => 'Mr. Taimoor Hussain',
             'description' => 'A Software Engineer Based In Karachi, Pk.',
             'image' => 'covers/img.png',
+            'domain_name' => 'taimoorhussain.com',
             'social_link' => [
                 [
                     'link' => 'https://x.com/Mohamma97977712',
                     'svg' => 'social-links/twitter.svg',
                 ],
+                [
+                    'link' => 'https://github.com/taimoorKVD',
+                    'svg' => 'social-links/github.svg',
+                ],
+                [
+                    'link' => 'https://www.linkedin.com/in/hafiz-mohammad-taimoor-hussain',
+                    'svg' => 'social-links/linkedin.svg',
+                ]
+            ]
+        ]);
+        Home::create([
+            'title' => 'Mr. Maaz Habib',
+            'description' => 'A Software Engineer Based In Karachi, Pk.',
+            'image' => 'covers/img.png',
+            'domain_name' => 'maazhabib.com',
+            'social_link' => [
+//                [
+//                    'link' => 'https://x.com/Mohamma97977712',
+//                    'svg' => 'social-links/twitter.svg',
+//                ],
                 [
                     'link' => 'https://github.com/taimoorKVD',
                     'svg' => 'social-links/github.svg',

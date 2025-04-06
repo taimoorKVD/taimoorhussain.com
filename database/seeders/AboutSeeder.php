@@ -29,6 +29,68 @@ class AboutSeeder extends Seeder
                     <p>✅ Currently, I am leveraging my expertise at Kingdom Vision, where I focus on PHP, Laravel,
                         Node.js, React.js, and Vue.js development.</p>',
             'image' => 'about/profile-pic.jpeg',
+            'domain_name' => 'taimoorhussain.com',
+            'email' => 'contact@taimoorhussain.com',
+            'contact' => '+92-313-1094717',
+            'nationality' => 'Pakistani',
+            'address' => 'Block#3, SFC, Karachi, PK.',
+            'skill' => [
+                [
+                    "name" => "Laravel",
+                    "percentage" => "70",
+                    "color" => "#ffde67"
+                ],
+                [
+                    "name" => "Codeigniter",
+                    "percentage" => "55",
+                    "color" => "#ff9900"
+                ],
+                [
+                    "name" => "Core PHP",
+                    "percentage" => "70",
+                    "color" => "#82b700"
+                ]
+                ,[
+                    "name" => "Node JS",
+                    "percentage" => "45",
+                    "color" => "#ef2d56"
+                ],
+                [
+                    "name" => "Vue JS",
+                    "percentage" => "50",
+                    "color" => "#2eca7f"
+                ],
+                [
+                    "name" => "React JS",
+                    "percentage" => "30",
+                    "color" => "#2ecab5"
+                ]
+            ]
+        ]);
+        About::create([
+            'title' => 'A Software Engineer with 4+ years of experience',
+            'description' => '<p>I am Maaz Habib, a dedicated backend developer with extensive expertise in PHP and
+                        its popular frameworks, such as Laravel and CodeIgniter.</p>
+                    <h4>💼 Specialties and Experience:</h4>
+                    <p>✅ Specialize in Laravel, renowned for crafting robust backend solutions tailored to diverse
+                        domains including eCommerce, point-of-sale (POS), multi-vendor platforms, and content management
+                        systems (CMS).</p>
+                    <p>✅ Provide custom PHP development services, delivering tailored functionalities meticulously
+                        designed to meet precise requirements and enhance project outcomes.</p>
+                    <p>✅ Leverage the capabilities of CodeIgniter to develop scalable backend applications, including
+                        customer relationship management (CRM) and point-of-sale (POS) systems.</p>
+                    <p>✅ Adopt a strategic approach to ensure the delivery of powerful and efficient solutions that
+                        adeptly cater to the diverse needs of businesses across industries.</p>
+                    <h4>💡 Education:</h4>
+                    <p>✅ Bachelor in Software Engineering (S.E.) from Ilma University.</p>
+                    <p>✅ Currently, I am leveraging my expertise at Kingdom Vision, where I focus on PHP, Laravel,
+                        Node.js, React.js, and Vue.js development.</p>',
+            'image' => 'about/profile-pic.jpeg',
+            'domain_name' => 'maazhabib.com',
+            'email' => 'contact@maazhabib.com',
+            'contact' => '+92-320-2381814',
+            'nationality' => 'Pakistani',
+            'address' => 'Block#4, Nazimabad, Karachi, PK.',
             'skill' => [
                 [
                     "name" => "Laravel",

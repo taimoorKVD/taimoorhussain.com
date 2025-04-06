@@ -18,6 +18,7 @@ class Service extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'detail' => 'array'
+        'detail' => 'array',
+        'domain_name' => 'array',
     ];
 }
